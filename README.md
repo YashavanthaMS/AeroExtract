@@ -1,4 +1,4 @@
-# Airport & Passport Information Extraction System
+# AeroExtract — Airport & Passport Information Extraction
 
 An end-to-end information extraction pipeline (POS tagging → NER → relation
 extraction → event extraction → temporal ordering, with Wikidata entity
@@ -7,23 +7,32 @@ grounding) for airport/passport-domain text, wrapped in a Streamlit app.
 ## Project layout
 
 ```
-airport_ie_system/
-├── app.py                     # Streamlit frontend
-├── report.md                  # pipeline write-up (also rendered inside the app)
-├── requirements.txt
-├── backend/
-│   ├── pipeline.ipynb          # backend developed & validated step-by-step here
-│   └── pipeline.py             # consolidated module imported by app.py
-├── sample_data/
-│   └── sample_corpus.txt       # synthetic demo text (no real passport data)
-└── outputs/                    # generated artifacts (e.g. temporal_graph.png)
+app.py                    # Streamlit frontend
+report.md                 # pipeline write-up (also rendered inside the app)
+requirements.txt
+backend/
+├── pipeline.ipynb        # backend developed and validated step-by-step
+└── pipeline.py           # consolidated module imported by app.py
+sample_data/
+└── sample_corpus.txt     # synthetic demo text (no real passport data)
 ```
 
 ## Setup
 
+Windows PowerShell:
+
 ```bash
 python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
+.\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
+```
+
+macOS / Linux:
+
+```bash
+python -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 python -m spacy download en_core_web_sm
 ```
